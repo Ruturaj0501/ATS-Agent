@@ -10,7 +10,7 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 def get_response(input,pdf_content,prompt):
-    model=genai.GenerativeModel('gemini-1.5-flash-latest')
+    model=genai.GenerativeModel('gemini-flash-latest')
     response=model.generate_content([input,pdf_content,prompt])
     return response.text
 
@@ -65,4 +65,5 @@ if submit3:
         st.write(response)
     else:
         st.error("Please upload a PDF file")
+
 
